@@ -58,9 +58,9 @@ function App() {
       <div>
           <NavBar />
           <Routes>
-            <Route path="/" element={<Purpose />}/>
-            <Route path="/roster" element={<PlayerList players={players} onRemovePlayer={removePlayer} onDeleteAgent={onDeleteAgent} onChangeAgent={onChangeAgent} onAddAgent={onAddAgent}/>}/>
-            <Route path="/add" element={<AddPlayer onAddPlayer={addPlayer}/>}/>
+            <Route path="/" element={<Landing />}/>
+            <Route path="/trips" element={<TripList />}/>
+            <Route path="/add" element={<AddTrip onAddTrip={addTrip}/>}/>
           </Routes>
       </div>
     </div>
