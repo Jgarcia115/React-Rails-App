@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2023_04_01_014343) do
 
   create_table "trips", force: :cascade do |t|
     t.integer "user_id"
-    t.string "country_id"
+    t.integer "country_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "budget"
