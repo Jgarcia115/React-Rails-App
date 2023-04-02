@@ -9,11 +9,11 @@
 puts "🌱 Seeding spices..."
 
 
-30.times do
+20.times do
     Country.create(name: Faker::Address.unique.country)
 end
 
-20.times do
+10.times do
     User.create(
         username: Faker::Name.unique.first_name,
         password: Faker::Internet.password,
@@ -21,7 +21,7 @@ end
 end
 
 
-15.times do
+5.times do
     Trip.create(
         user_id: rand(1..5),
         country_id: rand(1..10),

@@ -26,7 +26,7 @@ class TripsController < ApplicationController
         if user
             trip = Trip.find(params[:id])
             trip.update(
-                date: params[:date]
+                budget: params[:budget]
             )
             render json: trip, status: :created
         else
@@ -48,7 +48,7 @@ class TripsController < ApplicationController
     private
 
     def trip_params
-        params.permit(:date)
+        params.permit(:budget, :user_id, :country_id)
     end
 
     def render_unprocessable_entity_response(invalid)
