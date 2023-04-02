@@ -14,7 +14,7 @@ class CountriesController < ApplicationController
     def create
         user = User.find_by(id: session[:user_id])
         if user
-            country = user.countries.create!(countries_params)
+            country = Country.create!(countries_params)
             render json: country, status: :created
         else
             render  json: { errors: ["Not authorized"] }, status: :unauthorized
