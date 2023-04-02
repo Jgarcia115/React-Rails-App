@@ -1,11 +1,11 @@
 class TripsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-    def show
+    def index
         user = User.find_by(id: session[:user_id])
         if user
             trips = user.trips
-            render json: trips, status: :created
+            render json: trips
         else
             render  json: { errors: ["Not authorized"] }, status: :unauthorized
         end

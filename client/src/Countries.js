@@ -4,7 +4,6 @@ import AddTrip from "./AddTrip";
 
 function Countries({user}) {
   const [countries, setCountries] = useState([]);
-
   useEffect(() => {
     fetch("/countries")
       .then((r) => r.json())
@@ -14,12 +13,9 @@ function Countries({user}) {
   return (
     <div>
       {countries.length > 0 ? (
-        countries.map(country => (
-          <div>
-              <h2>{country.name}</h2>
-              <AddTrip key={country.id} element={user}/>
-          </div>
-        ))
+        countries.map(country => {
+          return <AddTrip key={country.id} country={country} user={user}/>
+          })
       ) : (
         <>
           <h2>No Country Found</h2>

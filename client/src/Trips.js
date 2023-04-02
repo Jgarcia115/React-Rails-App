@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 function Trips() {
   const [trips, setTrips] = useState([]);
+  console.log(trips)
 
   useEffect(() => {
     fetch("/trips")
@@ -10,14 +11,13 @@ function Trips() {
       .then(setTrips);
   }, []);
 
-
   return (
     <div>
       {trips.length > 0 ? (
         trips.map(trip => (
           <div>
-              <h2>{trip.budget}</h2>
-              <h1>{trip.country}</h1>
+            <h2>Where to? {trip.country.name}</h2>
+            <h5>Budget: {trip.budget}</h5>
           </div>
         ))
       ) : (

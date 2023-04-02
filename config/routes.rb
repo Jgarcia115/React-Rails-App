@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  resources :trips, only: [:show, :create, :update, :destroy]
+  resources :trips, only: [:index, :create, :update, :destroy]
   resources :countries, only: [:index, :create]
 end

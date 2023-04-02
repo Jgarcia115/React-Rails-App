@@ -1,11 +1,12 @@
 import React, { useState} from "react"
 import { useNavigate } from "react-router-dom"
 
-function AddTrip ({ key }) {
+function AddTrip ({ country, user }) {
     const [budget, setBudget] = useState();
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
+    const { id, name } = country
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -17,12 +18,13 @@ function AddTrip ({ key }) {
           },
           body: JSON.stringify({
             budget,
-            country_id: key  
+            country_id: id,
+            user_id: user.id
           }),
         }).then((r)=> {
             setIsLoading(false);
             if (r.ok) {
-                navigate('/');
+                navigate('/trips');
             } else { 
                 r.json().then((err) => setErrors(err.errors));
             }
@@ -31,7 +33,10 @@ function AddTrip ({ key }) {
 
     return (
         <section className='Add'>
-            <text>Add Trip</text>
+            <div>
+                <h1>{name}</h1>
+            </div>
+            <p>Add Trip</p>
             <form onSubmit={handleSubmit}>
                 <label>
                     <input

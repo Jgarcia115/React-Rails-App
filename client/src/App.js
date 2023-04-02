@@ -26,7 +26,7 @@ function App() {
         <NavBar setUser={setUser}/>
         <Routes>
           <Route path="/trips" element={<Trips/>}/>
-          <Route path="/" element={<Countries key={user}/>}/>
+          <Route path="/" element={<Countries user={user}/>}/>
           <Route path="/addCountry" element={<AddCountry/>}/>
         </Routes>
     </div>
