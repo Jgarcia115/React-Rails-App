@@ -18,7 +18,7 @@ function Countries() {
     <div>
       {countries.length > 0 ? (
         countries.map(country => {
-          return <AddTrip key={country.id} country={country} user={user}/>
+          return <AddTrip key={country.id} country={country}/>
           })
       ) : (
         <>

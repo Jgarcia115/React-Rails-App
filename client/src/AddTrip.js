@@ -1,12 +1,15 @@
-import React, { useState} from "react"
+import React, { useState, useContext} from "react"
 import { useNavigate } from "react-router-dom"
+import { UserContext } from "./user";
 
-function AddTrip ({ country, user }) {
+function AddTrip ({ country }) {
     const [budget, setBudget] = useState();
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
     const { id, name } = country
+
+    const user = useContext(UserContext)
 
     function handleSubmit(e) {
         e.preventDefault();
