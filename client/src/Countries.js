@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AddTrip from "./AddTrip";
+import { UserContext } from "./user";
 
-function Countries({user}) {
+function Countries() {
+
+  const user = useContext(UserContext)
+
   const [countries, setCountries] = useState([]);
   useEffect(() => {
     fetch("/countries")
